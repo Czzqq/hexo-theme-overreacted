@@ -1,2 +1,4 @@
-# hexo-theme-overreacted
-改写hexo-theme-xoxo更接近于overreacted的风格。
+# hexo-theme-xoxo
+
+## 2023/2/12
+整体风格更接近overreacted博客便于改写
