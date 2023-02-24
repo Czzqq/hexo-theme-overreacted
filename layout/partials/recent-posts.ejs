@@ -1,0 +1,32 @@
+
+<% if (page.posts.length > 0) { %>
+  <div class="recent-posts">
+    <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
+
+      <article class="recent-post-item">
+        <a class="title" href="<%=config.root + post.path%>"><h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ; color: #d23669;font-size: 1.75rem;margin-bottom: 0.4375rem;line-height: 1.1;text-rendering: optimizeLegibility;font-weight: 900;letter-spacing: 2px;"><%=post.title%></h2></a>
+        <div class="post-meta">
+          <% if (theme.show_excerpt && post.excerpt) { %>
+            <div class="post-excerpt ">
+              <%- post.excerpt %>
+            </div>
+          <% } %>
+          <% if (theme.show_date && post.date) { %>
+          <time class="time" datetime="<%=post.date.toJSON()%>">
+            <%= date(post.date) %>
+          </time>
+          <% } %>
+          <% if (post.tags) { %>
+          <%- list_tags(post.tags, {
+            show_count: false,
+            class: 'index-tag'
+          }) %>
+          <% } %>
+
+        </div>
+
+
+      </article>
+    <% }); %>
+  </div>
+<% } %>
